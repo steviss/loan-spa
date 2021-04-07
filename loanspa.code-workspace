@@ -1,0 +1,10 @@
+{
+    "folders": [
+        {
+            "name": "Loan SPA Frontend",
+            "path": "."
+        }
+    ],
+    "settings": { "typescript.tsdk": "node_modules/typescript/lib" },
+    
+}
