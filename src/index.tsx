@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { CssBaseline } from '@material-ui/core';
+
+const client = new ApolloClient({ cache: new InMemoryCache() });
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <ApolloProvider client={client}>
+            <CssBaseline />
+            <App />
+        </ApolloProvider>
     </React.StrictMode>,
     document.getElementById('root'),
 );
