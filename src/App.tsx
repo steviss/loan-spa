@@ -7,7 +7,7 @@ import { Routes } from './routes';
 const App: React.FC = () => {
     return (
         <BrowserRouter>
-            <main className="App">
+            <main className="wrapper">
                 <TopHeader />
                 <Routes />
             </main>

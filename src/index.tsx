@@ -3,16 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import { CssBaseline } from '@material-ui/core';
+import { ApolloClient, ApolloProvider } from '@apollo/client';
+import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
+import { cache } from './apollo/cache';
 
-const client = new ApolloClient({ cache: new InMemoryCache() });
+const client = new ApolloClient({ cache, connectToDevTools: true });
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            light: '#61cc7b',
+            main: '#3baf57',
+            dark: '#197730',
+            contrastText: '#fff',
+        },
+    },
+});
 
 ReactDOM.render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <CssBaseline />
-            <App />
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <App />
+            </ThemeProvider>
         </ApolloProvider>
     </React.StrictMode>,
     document.getElementById('root'),
